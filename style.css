@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* LOGIN */
+
+.page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background: white;
+    width: 350px;
+    padding: 35px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.login-box h1 {
+    margin-bottom: 5px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #198754;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.hint {
+    font-size: 12px;
+    color: gray;
+}
+
+
+/* HEADER */
+
+header {
+    background: #198754;
+    color: white;
+    padding: 20px 40px;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0;
+}
+
+.logout {
+    position: absolute;
+    right: 40px;
+    top: 25px;
+    background: #dc3545;
+}
+
+
+/* MAIN */
+
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* PRODUCTS */
+
+.products-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product h3 {
+    margin-top: 0;
+}
+
+
+/* CART */
+
+.cart-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #e9ecef;
+}
+
+.delete-btn {
+    background: #dc3545;
+}
+
+.qty-btn {
+    background: #0d6efd;
+    margin: 2px;
+    padding: 5px 9px;
+}
+
+.bill-box {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.bill-box input {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.bill-btn {
+    background: #0d6efd;
+    font-size: 16px;
+}
+
+
+/* RECEIPT */
+
+.receipt {
+    background: white;
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px dashed #333;
+}
+
+.receipt h2 {
+    text-align: center;
+}
+
+.receipt button {
+    margin-top: 20px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .logout {
+        right: 20px;
+    }
+}
+
+
+/* PRINT */
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    .receipt,
+    .receipt * {
+        visibility: visible;
+    }
+
+    .receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+}
