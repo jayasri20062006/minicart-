@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniCart - Grocery Billing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="page">
+        <div class="login-box">
+            <h1>🛒 MiniCart</h1>
+            <p>Grocery Billing Web App</p>
+
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+
+            <button onclick="login()">Login</button>
+
+            <p class="hint">Username: admin | Password: 1234</p>
+        </div>
+    </div>
+
+
+    <!-- MAIN APPLICATION -->
+    <div id="appPage" class="hidden">
+
+        <header>
+            <h1>🛒 MiniCart</h1>
+            <p>Grocery Billing System</p>
+            <button onclick="logout()" class="logout">Logout</button>
+        </header>
+
+
+        <main>
+
+           
+
+        
+    <!-- PRODUCTS -->
+    <section class="products-section">
+        <h2>Grocery Products</h2>
+
+        <div class="product-grid">
+
+            <div class="product">
+                <h3>Rice</h3>
+                <p>₹60 / kg</p>
+                <button onclick="addToCart('Rice', 60)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Sugar</h3>
+                <p>₹45 / kg</p>
+                <button onclick="addToCart('Sugar', 45)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Milk</h3>
+                <p>₹30</p>
+                <button onclick="addToCart('Milk', 30)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Biscuit</h3>
+                <p>₹20</p>
+                <button onclick="addToCart('Biscuit', 20)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Oil</h3>
+                <p>₹150 / litre</p>
+                <button onclick="addToCart('Oil', 150)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Soap</h3>
+                <p>₹40</p>
+                <button onclick="addToCart('Soap', 40)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Toor Dal</h3>
+                <p>₹160 / kg</p>
+                <button onclick="addToCart('Toor Dal', 160)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Atta (Wheat Flour)</h3>
+                <p>₹65 / kg</p>
+                <button onclick="addToCart('Atta (Wheat Flour)', 65)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Salt</h3>
+                <p>₹25 / packet</p>
+                <button onclick="addToCart('Salt', 25)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Tea Powder</h3>
+                <p>₹90 / packet</p>
+                <button onclick="addToCart('Tea Powder', 90)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Coffee Powder</h3>
+                <p>₹75 / packet</p>
+                <button onclick="addToCart('Coffee Powder', 75)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Ghee</h3>
+                <p>₹320 / 500ml</p>
+                <button onclick="addToCart('Ghee', 320)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Eggs</h3>
+                <p>₹7 / piece</p>
+                <button onclick="addToCart('Eggs', 7)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Onion</h3>
+                <p>₹50 / kg</p>
+                <button onclick="addToCart('Onion', 50)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Tomato</h3>
+                <p>₹40 / kg</p>
+                <button onclick="addToCart('Tomato', 40)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Potato</h3>
+                <p>₹35 / kg</p>
+                <button onclick="addToCart('Potato', 35)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Chilli Powder</h3>
+                <p>₹45 / packet</p>
+                <button onclick="addToCart('Chilli Powder', 45)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Turmeric Powder</h3>
+                <p>₹30 / packet</p>
+                <button onclick="addToCart('Turmeric Powder', 30)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Shampoo</h3>
+                <p>₹50</p>
+                <button onclick="addToCart('Shampoo', 50)">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <h3>Toothpaste</h3>
+                <p>₹55</p>
+                <button onclick="addToCart('Toothpaste', 55)">Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+
+            <!-- CART -->
+            <section class="cart-section">
+
+                <h2>🛍️ Shopping Cart</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="cartItems">
+                    </tbody>
+                </table>
+
+
+                <div class="bill-box">
+
+                    <label>Customer Name</label>
+                    <input type="text" id="customerName" placeholder="Enter customer name">
+
+                    <p>Subtotal: ₹<span id="subtotal">0</span></p>
+
+                    <p>Discount (10%): ₹<span id="discount">0</span></p>
+
+                    <h3>Grand Total: ₹<span id="grandTotal">0</span></h3>
+
+                    <button onclick="generateBill()" class="bill-btn">
+                        Generate Bill
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECEIPT -->
+            <section id="receipt" class="receipt hidden">
+
+                <h2>🧾 MiniCart Bill</h2>
+
+                <p>Customer: <span id="billCustomer"></span></p>
+
+                <p>Date: <span id="billDate"></span></p>
+
+                <hr>
+
+                <div id="billItems"></div>
+
+                <hr>
+
+                <h3>Total Amount: ₹<span id="billTotal"></span></h3>
+
+                <button onclick="window.print()">Print Bill</button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
